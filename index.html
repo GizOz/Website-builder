@@ -4,23 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cafe Keshet · קפה קשת · Herzliya Beach</title>
-<meta name="description" content="Cafe Keshet — a beachside café and bar on De Shalit Square, Herzliya. Morning coffee, brunch, cocktails and wine by the sea. Open daily from 8:00 until midnight.">
+<meta name="description" content="Cafe Keshet — beach café and bar under the arches on De Shalit Square, Herzliya. Coffee from 8:00, cocktails and wine until midnight, every day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wdth,wght@62..125,400;62..125,600;62..125,800&family=Heebo:wght@400;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "CafeOrCoffeeShop",
   "name": "Cafe Keshet",
   "alternateName": "קפה קשת",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "De Shalit Square, Hof HaSharon (HaKshatot)",
-    "addressLocality": "Herzliya",
-    "postalCode": "4664025",
-    "addressCountry": "IL"
-  },
+  "address": {"@type": "PostalAddress", "streetAddress": "De Shalit Square, Hof HaSharon (HaKshatot)", "addressLocality": "Herzliya", "postalCode": "4664025", "addressCountry": "IL"},
   "priceRange": "₪50–100",
   "servesCuisine": ["Coffee", "Brunch", "Cocktails", "Wine"],
   "openingHoursSpecification": [
@@ -30,371 +24,347 @@
 }
 </script>
 <style>
+  /* Concept: "HaKshatot" — the concrete arches on Herzliya's beach where Keshet stands.
+     Keshet (קשת) means arch / rainbow. Arches are the only curve on the page; everything
+     else is square-cut, like the printed menu and the vertical logotype. */
   :root{
     --navy:#30407d;
-    --navy-deep:#222d5c;
+    --navy-ink:#1b2450;
     --sun:#f3c271;
-    --cream:#f0e7d2;
-    --cream-2:#e8dcc0;
-    --ink:#1d2340;
-    --muted:#5b6080;
-    --sea:#7cbfcf;
-    --radius:22px;
-    --max:1120px;
+    --white:#ffffff;
+    --sea:#2b8fa3;
+    --line:rgba(27,36,80,.18);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:"DM Sans",system-ui,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-  img{max-width:100%;display:block}
+  body{font-family:"Archivo",system-ui,sans-serif;font-stretch:100%;background:var(--white);color:var(--navy-ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
   a{color:inherit}
-  .he{font-family:"Rubik",sans-serif}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-  .display{font-family:"Anton",Impact,sans-serif;font-weight:400;letter-spacing:.01em;text-transform:uppercase;line-height:.95}
-  .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--sun);vertical-align:top}
-  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
-  .btn{display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.5em;border-radius:999px;font-weight:700;text-decoration:none;transition:transform .2s,background .2s,color .2s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-sun{background:var(--sun);color:var(--navy-deep)}
-  .btn-ghost{border:2px solid currentColor;color:#fff}
-  .btn-ghost:hover{background:#fff;color:var(--navy)}
-  .btn-navy{background:var(--navy);color:#fff}
+  [lang="he"]{font-family:"Heebo",sans-serif}
+  .anton{font-family:"Anton",Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.9}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
-  /* Nav */
-  header{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
-  header.scrolled{background:var(--navy);box-shadow:0 6px 24px rgba(0,0,0,.18)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px;color:#fff}
-  .logo{display:flex;align-items:flex-end;gap:.35em;text-decoration:none;color:#fff}
-  .logo small{font-size:.7rem;letter-spacing:.15em;margin-bottom:.35em;opacity:.85}
-  .logo .display{font-size:1.75rem}
-  .nav ul{display:flex;gap:28px;list-style:none;font-weight:500}
-  .nav ul a{text-decoration:none;opacity:.9}
-  .nav ul a:hover{opacity:1;color:var(--sun)}
-  @media (max-width:720px){.nav ul{display:none}}
+  .btn{display:inline-block;font-weight:800;font-stretch:112%;text-transform:uppercase;letter-spacing:.02em;text-decoration:none;padding:18px 26px;border:3px solid var(--navy-ink);background:var(--sun);color:var(--navy-ink);box-shadow:6px 6px 0 var(--navy-ink);transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translate(3px,3px);box-shadow:3px 3px 0 var(--navy-ink)}
+  .btn:focus-visible,.link:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
+  .link{font-weight:600;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+
+  /* Top bar */
+  .bar{position:absolute;inset:0 0 auto;z-index:5;color:var(--white)}
+  .bar .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+  .bar nav{display:flex;gap:26px;font-weight:600;font-stretch:88%}
+  .bar nav a{text-decoration:none}
+  .bar nav a:hover{color:var(--sun)}
+  .mark{font-family:"Anton";font-size:1.5rem;text-decoration:none;letter-spacing:.02em}
+  .mark b{color:var(--sun);font-weight:400}
 
   /* Hero */
-  .hero{position:relative;min-height:100svh;display:grid;place-items:center;color:#fff;background:var(--navy);overflow:hidden;text-align:center;padding:110px 20px 80px}
-  .hero::before{content:"";position:absolute;inset:auto -10% -38% -10%;height:70%;background:radial-gradient(ellipse at 50% 0%,rgba(243,194,113,.35),transparent 60%)}
-  .waves{position:absolute;left:0;right:0;bottom:0;width:100%;height:120px}
-  .hero-inner{position:relative;z-index:1;max-width:820px}
-  .hero .cafe{font-size:clamp(1rem,2.4vw,1.4rem);letter-spacing:.35em;text-transform:lowercase;opacity:.85}
-  .hero h1{font-size:clamp(5rem,19vw,12rem);margin:.08em 0 .1em;position:relative;display:inline-block}
-  .hero h1 .dot{position:absolute;top:-.02em;left:-.28em;width:.17em;height:.17em}
-  .hero .he-name{font-size:1.4rem;opacity:.8;margin-bottom:1.2rem}
-  .hero p.lead{font-size:clamp(1.1rem,2.5vw,1.35rem);max-width:560px;margin:0 auto 2rem;opacity:.92}
-  .hero .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .status{display:inline-flex;align-items:center;gap:.55em;margin-bottom:1.6rem;padding:.45em 1em;border-radius:999px;background:rgba(255,255,255,.1);font-size:.92rem;font-weight:500}
-  .status i{width:9px;height:9px;border-radius:50%;background:#7ddc95;box-shadow:0 0 0 4px rgba(125,220,149,.25)}
-  .status.closed i{background:var(--sun);box-shadow:0 0 0 4px rgba(243,194,113,.25)}
+  .hero{background:var(--navy);color:var(--white);position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:auto 1fr minmax(280px,420px);gap:48px;align-items:end;padding-top:120px;padding-bottom:0;min-height:min(900px,100svh)}
+  .vertical{writing-mode:vertical-rl;transform:rotate(180deg);font-size:clamp(7rem,15vw,13rem);line-height:.82;align-self:stretch;display:flex;align-items:center;justify-content:flex-end;padding-bottom:40px}
+  .vertical span{color:var(--sun)}
+  .hero-copy{padding-bottom:110px}
+  .hero-copy .he-line{font-size:1.6rem;font-weight:700;margin-bottom:28px;opacity:.85}
+  .hero-copy h1{font-size:clamp(2.6rem,5.6vw,5rem);margin-bottom:28px}
+  .hero-copy h1 em{font-style:normal;color:var(--sun)}
+  .hero-copy p{font-size:1.15rem;max-width:30em;margin-bottom:40px;opacity:.9}
+  .hero-actions{display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+  .arch{border-radius:999px 999px 0 0;overflow:hidden}
+  .hero-photo{height:min(640px,72svh);border:6px solid var(--white);border-bottom:0}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:0;min-height:auto;padding-top:96px}
+    .vertical{writing-mode:horizontal-tb;transform:none;font-size:clamp(5.5rem,27vw,9rem);padding-bottom:12px;justify-content:flex-start}
+    .hero-copy{padding-bottom:48px}
+    .hero-photo{height:420px;width:78%;margin-left:auto}
+    .bar nav{display:none}
+  }
 
-  /* About */
-  section{padding:96px 0}
-  .about{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
-  .about figure{position:relative}
-  .about figure img{border-radius:var(--radius);aspect-ratio:4/5;object-fit:cover;width:100%;box-shadow:0 30px 60px -20px rgba(34,45,92,.45)}
-  .about figure::after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:var(--sun);right:-28px;top:-28px;z-index:-1}
-  .about h2{font-size:clamp(2.6rem,6vw,4.2rem);color:var(--navy);margin:.3em 0 .45em}
-  .about p{color:var(--muted);font-size:1.08rem;margin-bottom:1rem}
-  .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:1.6rem}
-  .pills span{background:#fff;border:1px solid var(--cream-2);padding:.45em 1em;border-radius:999px;font-weight:500;font-size:.92rem;color:var(--navy)}
-  @media (max-width:860px){.about{grid-template-columns:1fr;gap:44px}.about figure::after{right:-8px}}
+  /* Arcade divider — the beach arches */
+  .arcade{display:block;width:100%;height:56px;background:var(--navy)}
 
-  /* Menu */
-  .menu{background:var(--navy);color:#fff;border-radius:40px 40px 0 0}
-  .menu-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
-  .menu-head h2{font-size:clamp(3rem,8vw,5.5rem)}
-  .menu-head .eyebrow{color:var(--sun)}
-  .menu-head p{max-width:380px;opacity:.8}
-  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
-  .tabs button{font:inherit;font-weight:700;cursor:pointer;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#fff;padding:.6em 1.2em;border-radius:999px;transition:.2s}
-  .tabs button[aria-selected="true"],.tabs button:hover{background:var(--sun);border-color:var(--sun);color:var(--navy-deep)}
-  .panel{display:none;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px 56px}
-  .panel.active{display:grid;animation:fade .35s ease}
-  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .item{padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.22)}
-  .item-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
-  .item h3{font-size:1.08rem;font-weight:700}
-  .item h3 .he{font-weight:400;opacity:.6;font-size:.9rem;margin-left:.4em}
-  .item .price{font-weight:700;color:var(--sun);white-space:nowrap}
-  .item p{font-size:.9rem;opacity:.7;margin-top:2px}
-  .menu-note{margin-top:36px;font-size:.9rem;opacity:.7}
-  .kitchen{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-  .kitchen div{background:rgba(255,255,255,.07);border-radius:18px;padding:22px}
-  .kitchen b{display:block;font-family:"Anton",sans-serif;font-weight:400;font-size:1.5rem;text-transform:uppercase;color:var(--sun);letter-spacing:.02em}
-  .kitchen span{opacity:.8;font-size:.95rem}
+  /* Clock strip */
+  .clock{border-bottom:3px solid var(--navy-ink)}
+  .clock .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:center;padding-top:44px;padding-bottom:44px}
+  .clock .time{font-size:clamp(3.4rem,9vw,7.5rem);color:var(--navy)}
+  .clock .time i{font-style:normal;color:var(--sun);-webkit-text-stroke:2px var(--navy-ink)}
+  .clock p{font-size:1.1rem}
+  .clock strong{display:block;font-size:1.35rem;font-stretch:112%;margin-bottom:6px}
+  .clock .now{color:var(--sea)}
+  .clock .now.shut{color:#b4542f}
+  @media (max-width:760px){.clock .wrap{grid-template-columns:1fr}.clock .time{font-size:13.5vw;white-space:nowrap}}
 
-  /* Reviews */
-  .reviews{background:var(--cream)}
-  .reviews h2{font-size:clamp(2.6rem,6vw,4.2rem);color:var(--navy);margin:.25em 0 1.2em}
-  .quotes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-  .quote{background:#fff;border-radius:var(--radius);padding:28px;display:flex;flex-direction:column;gap:16px;border:1px solid var(--cream-2)}
-  .quote .stars{color:#e0a43a;letter-spacing:2px}
-  .quote blockquote{font-size:1.05rem;flex:1}
-  .quote cite{font-style:normal;font-weight:700;color:var(--navy);font-size:.92rem}
-  .quote cite span{font-weight:400;color:var(--muted)}
-  .quote.big{grid-column:span 2;background:var(--sun);border-color:var(--sun)}
-  .quote.big .stars{color:var(--navy)}
-  .quote.big blockquote{font-size:1.4rem;font-weight:500;color:var(--navy-deep)}
-  @media (max-width:640px){.quote.big{grid-column:auto}}
+  /* Story */
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:96px;padding-bottom:96px}
+  .story h2{font-size:clamp(2.8rem,6vw,5rem);color:var(--navy)}
+  .story p{font-size:1.15rem;margin-bottom:18px;max-width:34em}
+  .story ul{list-style:none;margin-top:28px;border-top:3px solid var(--navy-ink)}
+  .story li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-weight:600;font-stretch:90%}
+  .story li span:last-child{color:var(--sea)}
+  @media (max-width:860px){.story .wrap{grid-template-columns:1fr;gap:32px;padding-top:64px;padding-bottom:64px}}
+
+  /* Menu — set like the printed card */
+  .menu{background:var(--sun)}
+  .menu .wrap{padding-top:96px;padding-bottom:96px}
+  .menu-top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;border-bottom:3px solid var(--navy-ink);padding-bottom:20px;margin-bottom:48px}
+  .menu-top h2{font-size:clamp(4rem,12vw,9rem);color:var(--navy-ink)}
+  .menu-top p{max-width:22em;font-weight:600}
+  .cols{columns:2 420px;column-gap:72px}
+  .group{break-inside:avoid;margin-bottom:52px}
+  .group h3{display:flex;justify-content:space-between;align-items:baseline;font-family:"Anton";font-weight:400;font-size:2rem;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+  .group h3 span{font-family:"Heebo";font-weight:700;font-size:1.1rem;text-transform:none}
+  .row{display:flex;align-items:baseline;gap:10px;padding:7px 0}
+  .row .n{font-weight:600}
+  .row .dots{flex:1;border-bottom:2px dotted var(--navy-ink);opacity:.45;transform:translateY(-4px)}
+  .row .p{font-weight:800;font-variant-numeric:tabular-nums}
+  .row + .d,.d{font-size:.92rem;opacity:.75;margin:-4px 0 6px}
+  .legend{font-size:.9rem;font-weight:600;border-top:3px solid var(--navy-ink);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  .kitchen{margin-top:56px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--navy-ink);color:var(--white);padding:32px}
+  .kitchen .anton{font-size:clamp(2.4rem,5vw,3.6rem);color:var(--sun)}
+  .kitchen p{font-size:1.1rem;max-width:36em}
+  @media (max-width:700px){.kitchen{grid-template-columns:1fr}}
+
+  /* Reviews — running quote line */
+  .voices{background:var(--navy-ink);color:var(--white);padding:80px 0;overflow:hidden}
+  .voices .wrap h2{font-size:1.1rem;font-stretch:112%;font-weight:800;text-transform:uppercase;margin-bottom:36px;color:var(--sun)}
+  .track{display:flex;gap:80px;width:max-content;animation:run 60s linear infinite}
+  .voices:hover .track{animation-play-state:paused}
+  .track figure{max-width:620px;flex:none}
+  .track blockquote{font-family:"Anton";text-transform:uppercase;font-size:clamp(2rem,4vw,3.2rem);line-height:1.02}
+  .track blockquote::before{content:"“";color:var(--sun)}
+  .track figcaption{margin-top:16px;font-weight:600;opacity:.75}
+  .track figcaption b{color:var(--sun);letter-spacing:2px;margin-right:8px}
+  @keyframes run{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto;padding:0 24px;gap:48px}.track [aria-hidden]{display:none}}
 
   /* Visit */
-  .visit{background:var(--cream-2)}
-  .visit-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:stretch}
-  .visit h2{font-size:clamp(2.6rem,6vw,4.2rem);color:var(--navy);margin:.25em 0 .6em}
-  .card{background:#fff;border-radius:var(--radius);padding:28px}
-  .hours{list-style:none;margin-bottom:24px}
-  .hours li{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--cream)}
-  .hours li.today{font-weight:700;color:var(--navy)}
-  .hours li.today span:first-child::after{content:"Today";margin-left:.6em;font-size:.7rem;background:var(--sun);color:var(--navy-deep);padding:.15em .6em;border-radius:999px;vertical-align:middle}
-  .addr{display:flex;gap:12px;align-items:flex-start;margin-bottom:20px}
-  .addr svg{flex:none;margin-top:4px}
-  .map{border-radius:var(--radius);overflow:hidden;min-height:380px;background:var(--navy)}
-  .map iframe{width:100%;height:100%;min-height:380px;border:0;display:block}
-  @media (max-width:860px){.visit-grid{grid-template-columns:1fr}}
+  .visit{background:var(--navy);color:var(--white)}
+  .visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;padding-top:96px;padding-bottom:96px;align-items:start}
+  .visit h2{font-size:clamp(3rem,7vw,5.5rem);margin-bottom:24px}
+  .visit address{font-style:normal;font-size:1.3rem;margin-bottom:32px}
+  .visit address [lang="he"]{display:block;opacity:.75;font-size:1.05rem;margin-top:6px}
+  table{width:100%;border-collapse:collapse;margin-bottom:40px;font-stretch:92%}
+  td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+  td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+  tr.today td{color:var(--sun);font-weight:800}
+  .map{height:560px;border:6px solid var(--white);border-bottom:0;background:var(--navy-ink)}
+  .map iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.3)}
+  @media (max-width:860px){.visit .wrap{grid-template-columns:1fr;gap:40px;padding-top:64px;padding-bottom:64px}.map{height:420px}}
 
-  footer{background:var(--navy-deep);color:#fff;padding:56px 0 36px}
-  .foot{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-  .foot .display{font-size:3.4rem}
-  .foot p{opacity:.65;font-size:.9rem}
-  .grab{font-family:"DM Sans";font-weight:700;font-size:1.6rem;color:var(--sun)}
+  footer{background:var(--navy-ink);color:var(--white);padding:40px 0 120px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:baseline}
+  footer .anton{font-size:2.6rem}
+  footer .anton b{color:var(--sun);font-weight:400}
+  footer p{opacity:.7;font-size:.92rem}
 
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+  /* Thumb bar on phones */
+  .thumb{display:none}
+  @media (max-width:700px){
+    .thumb{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:10;border-top:3px solid var(--navy-ink)}
+    .thumb a{padding:18px 10px;text-align:center;font-weight:800;font-stretch:112%;text-transform:uppercase;text-decoration:none;background:var(--white);color:var(--navy-ink)}
+    .thumb a:first-child{background:var(--sun);border-right:3px solid var(--navy-ink)}
+  }
 </style>
 </head>
 <body>
 
-<header id="top">
-  <div class="wrap nav">
-    <a href="#top" class="logo" aria-label="Cafe Keshet home"><small>cafe</small><span class="display">Keshet<span class="dot" style="margin-left:2px"></span></span></a>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#visit">Visit</a></li>
-    </ul>
+<div class="bar">
+  <div class="wrap">
+    <a href="#top" class="mark" aria-label="Cafe Keshet">KESHET<b>.</b></a>
+    <nav aria-label="Sections">
+      <a href="#menu">Menu</a>
+      <a href="#voices">Reviews</a>
+      <a href="#visit">Hours &amp; map</a>
+    </nav>
   </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="vertical anton" aria-hidden="true">Keshet<span>.</span></div>
+    <div class="hero-copy">
+      <div class="he-line" lang="he" dir="rtl" style="text-align:left">קפה קשת · חוף הקשתות</div>
+      <h1 class="anton">Coffee at eight.<br><em>Cocktails</em> till midnight.</h1>
+      <p>A café and bar under the arches of Hasharon Beach, Herzliya. Sea view from every table.</p>
+      <div class="hero-actions">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener">Get directions</a>
+        <a class="link" href="#menu">See the menu ↓</a>
+      </div>
+    </div>
+    <div class="hero-photo arch">
+      <img src="assets/wine.jpg" alt="A bottle of Ramón Bilbao rosé lifted from an ice bucket of wines beside blooming plumeria" width="750" height="942">
+    </div>
+  </div>
+  <svg class="arcade" viewBox="0 0 1200 56" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#ffffff" d="M0 56V28A28 28 0 0 1 56 28V56H64V28A28 28 0 0 1 120 28V56H128V28A28 28 0 0 1 184 28V56H192V28A28 28 0 0 1 248 28V56H256V28A28 28 0 0 1 312 28V56H320V28A28 28 0 0 1 376 28V56H384V28A28 28 0 0 1 440 28V56H448V28A28 28 0 0 1 504 28V56H512V28A28 28 0 0 1 568 28V56H576V28A28 28 0 0 1 632 28V56H640V28A28 28 0 0 1 696 28V56H704V28A28 28 0 0 1 760 28V56H768V28A28 28 0 0 1 824 28V56H832V28A28 28 0 0 1 888 28V56H896V28A28 28 0 0 1 952 28V56H960V28A28 28 0 0 1 1016 28V56H1024V28A28 28 0 0 1 1080 28V56H1088V28A28 28 0 0 1 1144 28V56H1152V28A28 28 0 0 1 1200 28V56Z"/>
+  </svg>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="status" id="status"><i></i><span>Open daily · 8:00–midnight</span></div>
-    <div class="cafe">cafe</div>
-    <h1 class="display"><span class="dot"></span>Keshet</h1>
-    <div class="he-name he" lang="he" dir="rtl">קפה קשת</div>
-    <p class="lead">Morning coffee, long brunches and sunset cocktails — right on the sand at Herzliya beach.</p>
-    <div class="ctas">
-      <a href="#menu" class="btn btn-sun">See the menu</a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener" class="btn btn-ghost">Get directions →</a>
-    </div>
-  </div>
-  <svg class="waves" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
-    <path fill="#7cbfcf" fill-opacity=".25" d="M0,64 C240,112 480,16 720,48 C960,80 1200,112 1440,64 L1440,120 L0,120Z"/>
-    <path fill="#f0e7d2" d="M0,88 C260,56 520,120 760,96 C1000,72 1220,64 1440,92 L1440,120 L0,120Z"/>
-  </svg>
-</section>
-
-<section id="about">
-  <div class="wrap about">
-    <figure class="reveal">
-      <img src="assets/wine.jpg" alt="A bottle of Ramón Bilbao rosé lifted from an ice bucket of wines beside blooming plumeria" width="750" height="942">
-    </figure>
-    <div class="reveal">
-      <span class="eyebrow">On De Shalit Square · Herzliya</span>
-      <h2 class="display">Sea view.<br>Good coffee.<br>Easy days.</h2>
-      <p>Cafe Keshet sits on Hasharon Beach, steps from the water. Come for the morning coffee our regulars rave about, stay for fresh, generous plates, and linger into the evening over a spritz, a glass of rosé or something from the bar.</p>
-      <p>Romantic dinners, lazy family brunches, events by the sea — or just grab and go on your way to the beach.</p>
-      <div class="pills">
-        <span>☕ Morning coffee</span><span>🍳 Brunch</span><span>🍔 Burgers & pizza</span><span>🍸 Cocktails</span><span>🍷 Wine bar</span><span>🌊 Sea view</span><span>🎶 Events</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="menu" class="menu">
+<main>
+<section class="clock" aria-label="Opening hours">
   <div class="wrap">
-    <div class="menu-head">
-      <div>
-        <span class="eyebrow">Grab and go · Drinks</span>
-        <h2 class="display">The Menu</h2>
+    <div class="time anton">08<i>:</i>00 — 00<i>:</i>00</div>
+    <p><strong id="now" class="now">Open every day</strong>Breakfast from 8:00, and from 7:00 on Thursdays. Kitchen and bar run until midnight.</p>
+  </div>
+</section>
+
+<section class="story">
+  <div class="wrap">
+    <h2 class="anton">Sand at your feet, espresso in hand.</h2>
+    <div>
+      <p>Keshet sits on De Shalit Square, right on Hasharon Beach. Mornings start with the coffee our regulars come back for. Afternoons are long brunches and burgers. When the sun drops into the sea, it turns into a bar: spritzes, frozen margaritas and rosé on ice.</p>
+      <p>Come for a romantic dinner or a family brunch, catch one of our events, or grab a cold brew on your way to the water.</p>
+      <ul>
+        <li><span>Morning coffee &amp; breakfast</span><span>from 08:00</span></li>
+        <li><span>Brunch, burgers, pizza</span><span>all day</span></li>
+        <li><span>Cocktails &amp; wine by the sea</span><span>till 00:00</span></li>
+        <li><span>Grab and go</span><span>anytime</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="menu-top">
+      <h2 class="anton">Menu</h2>
+      <p>Drinks from our grab-and-go card. Prices in ₪. Two prices: small / large, single / double or glass / bottle.</p>
+    </div>
+
+    <div class="cols">
+      <div class="group">
+        <h3>Hot <span lang="he">שתייה חמה</span></h3>
+        <div class="row"><span class="n">Espresso, short / long</span><span class="dots"></span><span class="p">10 / 12</span></div>
+        <div class="row"><span class="n">Americano</span><span class="dots"></span><span class="p">14</span></div>
+        <div class="row"><span class="n">Cappuccino</span><span class="dots"></span><span class="p">14 / 16</span></div>
+        <div class="row"><span class="n">Macchiato, short / double</span><span class="dots"></span><span class="p">10 / 12</span></div>
+        <div class="row"><span class="n">Matcha</span><span class="dots"></span><span class="p">22 / 26</span></div>
+        <div class="row"><span class="n">Ceremony tea</span><span class="dots"></span><span class="p">14</span></div>
+        <p class="d">Jasmine · green · forest fruits</p>
       </div>
-      <p>Prices in ₪. Where two prices are shown: small / large, single / double, or glass / bottle.</p>
+
+      <div class="group">
+        <h3>Cold <span lang="he">שתייה קרה</span></h3>
+        <div class="row"><span class="n">Iced coffee</span><span class="dots"></span><span class="p">22</span></div>
+        <div class="row"><span class="n">Iced matcha</span><span class="dots"></span><span class="p">26</span></div>
+        <div class="row"><span class="n">Iced Americano</span><span class="dots"></span><span class="p">16</span></div>
+        <div class="row"><span class="n">Natural cold brew</span><span class="dots"></span><span class="p">18</span></div>
+        <div class="row"><span class="n">Frappé</span><span class="dots"></span><span class="p">14 / 24</span></div>
+        <div class="row"><span class="n">Iced tea</span><span class="dots"></span><span class="p">16</span></div>
+        <p class="d">Chai · strawberry-guava · hibiscus</p>
+        <div class="row"><span class="n">Gazoz soda</span><span class="dots"></span><span class="p">14</span></div>
+        <p class="d">Mojito mint · black pepper · hibiscus-elderflower</p>
+        <div class="row"><span class="n">Fresh juice, bottled</span><span class="dots"></span><span class="p">17</span></div>
+        <div class="row"><span class="n">Pepsi / Pepsi Max</span><span class="dots"></span><span class="p">13</span></div>
+        <div class="row"><span class="n">Mineral water</span><span class="dots"></span><span class="p">10</span></div>
+      </div>
+
+      <div class="group">
+        <h3>Bar <span lang="he">אלכוהול / קוקטיילים</span></h3>
+        <div class="row"><span class="n">Spritz de Shalit</span><span class="dots"></span><span class="p">44</span></div>
+        <p class="d">Crémant de Loire, soda, elderflower liqueur, fresh mint</p>
+        <div class="row"><span class="n">Espresso martini</span><span class="dots"></span><span class="p">44</span></div>
+        <p class="d">Coffee liqueur, citrus liqueur, espresso</p>
+        <div class="row"><span class="n">Frozen margarita</span><span class="dots"></span><span class="p">46</span></div>
+        <div class="row"><span class="n">Bottled cocktail</span><span class="dots"></span><span class="p">54</span></div>
+        <p class="d">Basil smash · Israeli tropical · Pink mama</p>
+        <div class="row"><span class="n">Heineken / Goldstar</span><span class="dots"></span><span class="p">28 / 32</span></div>
+      </div>
+
+      <div class="group">
+        <h3>Wine <span lang="he">יינות</span></h3>
+        <div class="row"><span class="n">Ramón Bilbao Rosado, Ltd. Ed.</span><span class="dots"></span><span class="p">52 / 210</span></div>
+        <div class="row"><span class="n">Petit Chablis, France (kosher)</span><span class="dots"></span><span class="p">58 / 240</span></div>
+        <div class="row"><span class="n">Crémant de Bourgogne, France</span><span class="dots"></span><span class="p">42 / 168</span></div>
+        <div class="row"><span class="n">Sauvignon Blanc</span><span class="dots"></span><span class="p">42 / 130</span></div>
+        <div class="row"><span class="n">House white</span><span class="dots"></span><span class="p">38 / 130</span></div>
+      </div>
     </div>
 
-    <div class="tabs" role="tablist">
-      <button role="tab" aria-selected="true" data-tab="hot">Hot drinks</button>
-      <button role="tab" aria-selected="false" data-tab="cold">Cold drinks</button>
-      <button role="tab" aria-selected="false" data-tab="bar">Cocktails & beer</button>
-      <button role="tab" aria-selected="false" data-tab="wine">Wine</button>
-    </div>
-
-    <div class="panel active" id="hot" role="tabpanel">
-      <div class="item"><div class="item-row"><h3>Espresso <span class="he" lang="he">אספרסו</span></h3><span class="price">10 / 12</span></div><p>Short / long</p></div>
-      <div class="item"><div class="item-row"><h3>Americano <span class="he" lang="he">אמריקנו</span></h3><span class="price">14</span></div></div>
-      <div class="item"><div class="item-row"><h3>Cappuccino <span class="he" lang="he">קפוצ׳ינו</span></h3><span class="price">14 / 16</span></div><p>Small / large</p></div>
-      <div class="item"><div class="item-row"><h3>Macchiato <span class="he" lang="he">מקיאטו</span></h3><span class="price">10 / 12</span></div><p>Short / double</p></div>
-      <div class="item"><div class="item-row"><h3>Matcha <span class="he" lang="he">מאצ׳ה</span></h3><span class="price">22 / 26</span></div><p>Small / large</p></div>
-      <div class="item"><div class="item-row"><h3>Ceremony hot tea <span class="he" lang="he">תה חם</span></h3><span class="price">14</span></div><p>Jasmine · green · forest fruits</p></div>
-    </div>
-
-    <div class="panel" id="cold" role="tabpanel">
-      <div class="item"><div class="item-row"><h3>Iced coffee <span class="he" lang="he">אייס קפה</span></h3><span class="price">22</span></div></div>
-      <div class="item"><div class="item-row"><h3>Iced matcha <span class="he" lang="he">מאצ׳ה קר</span></h3><span class="price">26</span></div></div>
-      <div class="item"><div class="item-row"><h3>Iced Americano <span class="he" lang="he">אמריקנו קר</span></h3><span class="price">16</span></div></div>
-      <div class="item"><div class="item-row"><h3>Natural cold brew <span class="he" lang="he">קפה קר טבעי</span></h3><span class="price">18</span></div></div>
-      <div class="item"><div class="item-row"><h3>Frappé <span class="he" lang="he">פרייה</span></h3><span class="price">14 / 24</span></div><p>Small / large</p></div>
-      <div class="item"><div class="item-row"><h3>Flavoured iced tea <span class="he" lang="he">תה קר בטעמים</span></h3><span class="price">16</span></div><p>Chai · strawberry-guava · hibiscus</p></div>
-      <div class="item"><div class="item-row"><h3>Flavoured soda <span class="he" lang="he">גזוז בטעמים</span></h3><span class="price">14</span></div><p>Mojito mint · black pepper · hibiscus-elderflower</p></div>
-      <div class="item"><div class="item-row"><h3>Fresh-squeezed bottled juice <span class="he" lang="he">מיץ טבעי</span></h3><span class="price">17</span></div><p>Three flavours</p></div>
-      <div class="item"><div class="item-row"><h3>Pepsi / Pepsi Max</h3><span class="price">13</span></div></div>
-      <div class="item"><div class="item-row"><h3>Mineral water, small</h3><span class="price">10</span></div></div>
-    </div>
-
-    <div class="panel" id="bar" role="tabpanel">
-      <div class="item"><div class="item-row"><h3>Spritz de Shalit <span class="he" lang="he">שפריץ דה שליט</span></h3><span class="price">44</span></div><p>Crémant de Loire, soda, elderflower liqueur, fresh mint</p></div>
-      <div class="item"><div class="item-row"><h3>Espresso martini <span class="he" lang="he">אספרסו מרטיני</span></h3><span class="price">44</span></div><p>Coffee liqueur, citrus liqueur, espresso</p></div>
-      <div class="item"><div class="item-row"><h3>Frozen margarita <span class="he" lang="he">אייס פרוזן מרגריטה</span></h3><span class="price">46</span></div></div>
-      <div class="item"><div class="item-row"><h3>Bottled cocktail <span class="he" lang="he">קוקטייל בבקבוק</span></h3><span class="price">54</span></div><p>Basil smash · Israeli tropical · Pink mama</p></div>
-      <div class="item"><div class="item-row"><h3>Heineken / Goldstar</h3><span class="price">28 / 32</span></div></div>
-    </div>
-
-    <div class="panel" id="wine" role="tabpanel">
-      <div class="item"><div class="item-row"><h3>Ramón Bilbao Rosado, Limited Edition</h3><span class="price">52 / 210</span></div><p>Rosé · glass / bottle</p></div>
-      <div class="item"><div class="item-row"><h3>Petit Chablis <span class="he" lang="he">(כשר)</span></h3><span class="price">58 / 240</span></div><p>White · France · kosher</p></div>
-      <div class="item"><div class="item-row"><h3>Crémant de Bourgogne</h3><span class="price">42 / 168</span></div><p>Sparkling · France</p></div>
-      <div class="item"><div class="item-row"><h3>Sauvignon Blanc</h3><span class="price">42 / 130</span></div><p>White</p></div>
-      <div class="item"><div class="item-row"><h3>House white <span class="he" lang="he">אורונוס אליוס</span></h3><span class="price">38 / 130</span></div><p>White</p></div>
-    </div>
-
-    <p class="menu-note">Milk of your choice: regular or oat. Menu and prices may change — ask your server for today's specials.</p>
+    <div class="legend"><span>Milk: regular or oat</span><span>Prices may change — ask about today's specials</span></div>
 
     <div class="kitchen">
-      <div><b>Breakfast</b><span>From 8:00 every day — 7:00 on Thursdays.</span></div>
-      <div><b>Brunch</b><span>Fresh, generous plates to share by the sea.</span></div>
-      <div><b>Lunch & dinner</b><span>Burgers, pizza and more, until late.</span></div>
+      <div class="anton">The kitchen</div>
+      <p>Breakfast, brunch, burgers, pizza and fresh plates, served all day. Ask for the full food menu at the counter.</p>
     </div>
   </div>
 </section>
 
-<section id="reviews" class="reviews">
+<section class="voices" id="voices" aria-label="Guest reviews">
+  <div class="wrap"><h2>Guests on Google</h2></div>
+  <div class="track">
+    <figure><blockquote>The best and coolest place at Herzliya beach.</blockquote><figcaption><b>★★★★★</b>Amit M.</figcaption></figure>
+    <figure><blockquote>Amazing atmosphere and sea view. Food so yummy and fresh.</blockquote><figcaption><b>★★★★★</b>Eva S.</figcaption></figure>
+    <figure><blockquote>Came for a romantic dinner. Perfect atmosphere.</blockquote><figcaption><b>★★★★★</b>Brent A.</figcaption></figure>
+    <figure><blockquote>Everyone said how great this place is. They weren't exaggerating.</blockquote><figcaption><b>★★★★★</b>Brian G.</figcaption></figure>
+    <figure><blockquote>So cozy and fun to sit at.</blockquote><figcaption><b>★★★★★</b>Nikita K.</figcaption></figure>
+    <figure><blockquote>Great place, great food, best service.</blockquote><figcaption><b>★★★★★</b>Moran K.</figcaption></figure>
+    <!-- duplicate set for a seamless loop -->
+    <figure aria-hidden="true"><blockquote>The best and coolest place at Herzliya beach.</blockquote><figcaption><b>★★★★★</b>Amit M.</figcaption></figure>
+    <figure aria-hidden="true"><blockquote>Amazing atmosphere and sea view. Food so yummy and fresh.</blockquote><figcaption><b>★★★★★</b>Eva S.</figcaption></figure>
+    <figure aria-hidden="true"><blockquote>Came for a romantic dinner. Perfect atmosphere.</blockquote><figcaption><b>★★★★★</b>Brent A.</figcaption></figure>
+    <figure aria-hidden="true"><blockquote>Everyone said how great this place is. They weren't exaggerating.</blockquote><figcaption><b>★★★★★</b>Brian G.</figcaption></figure>
+    <figure aria-hidden="true"><blockquote>So cozy and fun to sit at.</blockquote><figcaption><b>★★★★★</b>Nikita K.</figcaption></figure>
+    <figure aria-hidden="true"><blockquote>Great place, great food, best service.</blockquote><figcaption><b>★★★★★</b>Moran K.</figcaption></figure>
+  </div>
+</section>
+
+<section class="visit" id="visit">
   <div class="wrap">
-    <span class="eyebrow">What guests say</span>
-    <h2 class="display">Word on the beach</h2>
-    <div class="quotes">
-      <figure class="quote big reveal">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <blockquote>“Everyone has been saying how great this place is, and they weren’t exaggerating. Cafe Keshet is amazing!”</blockquote>
-        <cite>Brian G. <span>· Lunch</span></cite>
-      </figure>
-      <figure class="quote reveal">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <blockquote>“The best and coolest place at Herzliya beach. Nice events and very good food.”</blockquote>
-        <cite>Amit M. <span>· Brunch</span></cite>
-      </figure>
-      <figure class="quote reveal">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <blockquote>“Amazing place with amazing atmosphere and sea view. Food so yummy and fresh as well.”</blockquote>
-        <cite>Eva S.</cite>
-      </figure>
-      <figure class="quote reveal">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <blockquote>“Came for a romantic dinner with my wife. It was amazing! Great food, perfect atmosphere.”</blockquote>
-        <cite>Brent A. <span>· Dinner</span></cite>
-      </figure>
-      <figure class="quote reveal">
-        <div class="stars" aria-label="5 stars">★★★★★</div>
-        <blockquote>“Good and fresh food, good service and personal treatment. Great location.”</blockquote>
-        <cite>Shlomi K.</cite>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="visit" class="visit">
-  <div class="wrap visit-grid">
     <div>
-      <span class="eyebrow">Come by</span>
-      <h2 class="display">Visit us</h2>
-      <div class="card">
-        <div class="addr">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#30407d" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <div>
-            <strong>De Shalit Square, Hasharon Beach</strong><br>
-            Herzliya 4664025<br>
-            <span class="he" lang="he" dir="rtl">חוף השרון (הקשתות), כיכר דה שליט, הרצליה</span>
-          </div>
-        </div>
-        <ul class="hours" id="hours">
-          <li data-d="0"><span>Sunday</span><span>8:00 – Midnight</span></li>
-          <li data-d="1"><span>Monday</span><span>8:00 – Midnight</span></li>
-          <li data-d="2"><span>Tuesday</span><span>8:00 – Midnight</span></li>
-          <li data-d="3"><span>Wednesday</span><span>8:00 – Midnight</span></li>
-          <li data-d="4"><span>Thursday</span><span>7:00 – Midnight</span></li>
-          <li data-d="5"><span>Friday</span><span>8:00 – Midnight</span></li>
-          <li data-d="6"><span>Saturday</span><span>8:00 – Midnight</span></li>
-        </ul>
-        <a class="btn btn-navy" href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener">Directions on Google Maps →</a>
-      </div>
+      <h2 class="anton">Find us under the arches</h2>
+      <address>
+        De Shalit Square, Hasharon Beach<br>Herzliya 4664025
+        <span lang="he" dir="rtl" style="text-align:left">כיכר דה שליט, חוף השרון (הקשתות), הרצליה</span>
+      </address>
+      <table id="hours" aria-label="Opening hours">
+        <tr data-d="0"><td>Sunday</td><td>08:00 – 00:00</td></tr>
+        <tr data-d="1"><td>Monday</td><td>08:00 – 00:00</td></tr>
+        <tr data-d="2"><td>Tuesday</td><td>08:00 – 00:00</td></tr>
+        <tr data-d="3"><td>Wednesday</td><td>08:00 – 00:00</td></tr>
+        <tr data-d="4"><td>Thursday</td><td>07:00 – 00:00</td></tr>
+        <tr data-d="5"><td>Friday</td><td>08:00 – 00:00</td></tr>
+        <tr data-d="6"><td>Saturday</td><td>08:00 – 00:00</td></tr>
+      </table>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener">Open in Google Maps</a>
     </div>
-    <div class="map">
-      <iframe title="Map showing Cafe Keshet at De Shalit Square, Herzliya" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    <div class="map arch">
+      <iframe title="Map of Cafe Keshet, De Shalit Square, Herzliya" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
         src="https://maps.google.com/maps?q=Cafe%20Keshet%2C%20De%20Shalit%20Square%2C%20Herzliya&z=16&output=embed"></iframe>
     </div>
   </div>
 </section>
+</main>
 
 <footer>
-  <div class="wrap foot">
-    <div>
-      <div style="font-size:.8rem;letter-spacing:.3em;opacity:.7">cafe</div>
-      <div class="display">Keshet<span class="dot" style="margin-left:3px"></span></div>
-      <div class="he" lang="he" dir="rtl" style="opacity:.7;text-align:left">קפה קשת</div>
-    </div>
-    <div style="text-align:right">
-      <div class="grab">grab and go<span style="color:#fff">.</span></div>
-      <p>De Shalit Sq, Herzliya · Open daily until midnight</p>
-      <p>© <span id="yr"></span> Cafe Keshet</p>
-    </div>
+  <div class="wrap">
+    <div class="anton">Keshet<b>.</b> <span lang="he" style="font-family:Heebo;font-size:1.2rem;text-transform:none;opacity:.7">קפה קשת</span></div>
+    <p>grab and go · De Shalit Sq, Herzliya · © <span id="yr"></span> Cafe Keshet</p>
   </div>
 </footer>
 
+<nav class="thumb" aria-label="Quick actions">
+  <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener">Directions</a>
+  <a href="#menu">Menu</a>
+</nav>
+
 <script>
-  // Sticky nav background
-  const header = document.querySelector('header');
-  const onScroll = () => header.classList.toggle('scrolled', scrollY > 40);
-  addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-  // Menu tabs
-  document.querySelectorAll('.tabs button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', b === btn));
-      document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === btn.dataset.tab));
-    });
-  });
-
-  // Open / closed status in Israel time
   (function(){
     try {
-      const parts = new Intl.DateTimeFormat('en-US', {timeZone:'Asia/Jerusalem', weekday:'short', hour:'numeric', minute:'numeric', hourCycle:'h23'}).formatToParts(new Date());
+      const parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jerusalem',weekday:'short',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(new Date());
       const get = t => parts.find(p => p.type === t).value;
       const day = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(get('weekday'));
       const mins = (+get('hour') % 24) * 60 + (+get('minute'));
-      const opens = day === 4 ? 7 * 60 : 8 * 60;
-      const open = mins >= opens;
-      const el = document.getElementById('status');
-      el.classList.toggle('closed', !open);
-      el.querySelector('span').textContent = open
-        ? 'Open now · until midnight'
-        : `Closed now · opens at ${day === 4 ? '7:00' : '8:00'}`;
-      const li = document.querySelector(`#hours li[data-d="${day}"]`);
-      if (li) li.classList.add('today');
-    } catch(e) {}
+      const opens = day === 4 ? 7 : 8;
+      const open = mins >= opens * 60;
+      const el = document.getElementById('now');
+      el.textContent = open ? 'Open right now — until midnight' : `Closed — opens today at 0${opens}:00`;
+      el.classList.toggle('shut', !open);
+      const row = document.querySelector(`#hours tr[data-d="${day}"]`);
+      if (row) row.classList.add('today');
+    } catch (e) {}
     document.getElementById('yr').textContent = new Date().getFullYear();
   })();
-
-  // Reveal on scroll
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.15});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
