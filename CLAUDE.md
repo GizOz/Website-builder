@@ -26,3 +26,10 @@ Avoid these default patterns unless the client's own brand explicitly calls for 
 Instead: derive layout, shapes and motion from a concept specific to the business, use
 sharp or purposeful shapes, show content directly (no hidden tabs when a list fits), and
 make one primary action dominant.
+
+## Colour rule
+
+Use the client's own brand palette (sample it from their logo, menu, signage or photos)
+and keep it exact. Do not "upgrade" a brand to luxury with generic metallic or champagne
+gold, near-black, or other stock premium palettes. Luxury comes from space, type and
+restraint, not from swapping the brand's colours.
