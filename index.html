@@ -115,97 +115,50 @@
   .moments .w{font-size:1.05rem}
   @media (max-width:900px){.house .body{grid-template-columns:1fr}.house .body p:first-of-type,.moments{grid-column:auto}.moments{grid-template-columns:1fr 1fr;row-gap:28px}}
 
-  /* Menu — interactive */
-  .menu{background:var(--paper);color:var(--navy);position:relative}
+  /* Menu teaser */
+  .menu{background:var(--paper);color:var(--navy)}
   .menu .head .no,.menu .head h2{color:var(--navy)}
-  .m-controls{border-top:2px solid var(--navy);border-bottom:1px solid var(--ink-hair);padding:36px 0 28px;margin-bottom:64px}
-  .lbl{display:block;font-stretch:125%;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin-bottom:22px}
-  .dial{position:relative;display:grid;grid-template-columns:repeat(5,1fr);padding-top:26px}
-  .dial .rail{position:absolute;left:10%;right:10%;top:6px;height:1px;background:var(--navy)}
-  .sunmark{position:absolute;top:-8px;left:0;width:17px;height:17px;border-radius:50%;background:var(--sun);border:1px solid var(--navy);transform:translateX(-50%);transition:left .7s cubic-bezier(.2,.7,.2,1)}
-  .dial button{font:inherit;font-stretch:115%;background:none;border:0;color:var(--navy);cursor:pointer;padding:6px 4px;text-align:center;font-size:1rem;opacity:.55;transition:opacity .3s}
-  .dial button small{display:block;font-size:.72rem;letter-spacing:.14em;opacity:.8}
-  .dial button[aria-checked="true"],.dial button:hover{opacity:1}
-  .dial button[aria-checked="true"]{font-weight:500}
-  .m-row{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap;margin-top:34px}
-  .prefs{display:flex;gap:10px 30px;flex-wrap:wrap}
-  .prefs label{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.95rem}
-  .prefs input{position:absolute;opacity:0;pointer-events:none}
-  .prefs span{width:16px;height:16px;border:1px solid var(--navy);display:inline-grid;place-items:center;transition:background .2s}
-  .prefs input:checked + span{background:var(--navy);box-shadow:inset 0 0 0 3px var(--paper)}
-  .prefs input:focus-visible + span{outline:2px solid var(--navy);outline-offset:3px}
-  .m-tools{display:flex;align-items:center;gap:28px}
-  #msearch{font:inherit;color:var(--navy);background:transparent;border:0;border-bottom:1px solid var(--navy);padding:8px 0;width:210px}
-  #msearch::placeholder{color:rgba(48,64,125,.55)}
-  #msearch:focus{outline:none;border-bottom-width:2px}
+  .m-teaser{display:grid;grid-template-columns:120px 1fr auto;gap:24px 64px;align-items:end}
+  .m-teaser p{grid-column:2;font-size:1.3rem;line-height:1.6;max-width:32em}
+  .btn-navy{border-color:var(--navy);color:var(--navy);background:none;font-family:inherit;cursor:pointer}
+  .btn-navy::before{background:var(--navy)}
+  .btn-navy:hover{color:var(--sun)}
+  @media (max-width:900px){.m-teaser{grid-template-columns:1fr}.m-teaser p{grid-column:auto}.m-teaser .btn{justify-self:start}}
+
+  /* Menu window */
+  .m-window{border:0;padding:0;margin:auto;width:min(1100px,100vw);max-width:100vw;height:min(92vh,980px);max-height:100vh;background:var(--paper);color:var(--navy);box-shadow:0 40px 90px -30px rgba(10,15,40,.7)}
+  .m-window::backdrop{background:rgba(48,64,125,.82)}
+  .m-window[open]{display:flex;flex-direction:column;animation:mOpen .45s cubic-bezier(.2,.7,.2,1)}
+  @keyframes mOpen{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.m-window[open]{animation:none}}
+  .m-bar{display:flex;justify-content:space-between;align-items:center;padding:22px 40px;border-bottom:2px solid var(--navy);flex:none}
+  .m-bar .sig{font-size:1.5rem;color:var(--navy)}
+  .m-bar .sig b{color:var(--sun);-webkit-text-stroke:.5px var(--navy)}
+  .m-title{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:300;font-size:.78rem;letter-spacing:.28em;margin-left:14px;vertical-align:middle}
+  .m-bar-r{display:flex;align-items:center;gap:28px}
   .lang{display:flex;gap:8px;align-items:center}
   .lang button{font:inherit;background:none;border:0;color:var(--navy);cursor:pointer;opacity:.5;padding:4px}
   .lang button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-underline-offset:6px}
-  .m-count{margin-top:22px;font-size:.88rem;color:rgba(48,64,125,.72);min-height:1.5em}
-
-  .m-body{display:grid;grid-template-columns:200px 1fr;gap:64px;align-items:start}
-  .m-index{position:sticky;top:40px;display:flex;flex-direction:column;gap:4px}
-  .m-index a{display:flex;justify-content:space-between;text-decoration:none;font-stretch:125%;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 0 10px 18px;border-left:1px solid var(--ink-hair);opacity:.55;transition:opacity .3s,border-color .3s}
-  .m-index a.on{opacity:1;border-left:3px solid var(--navy);padding-left:16px}
-  .m-index a i{font-style:normal;opacity:.7}
-  .m-list{columns:2 340px;column-gap:72px}
-  .course{break-inside:avoid;margin-bottom:72px;scroll-margin-top:30px}
-  .course h3{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;margin-bottom:6px;border-bottom:2px solid var(--navy)}
+  .m-close{width:44px;height:44px;border:1px solid var(--navy);background:none;color:var(--navy);font-size:1rem;cursor:pointer;transition:background .2s,color .2s}
+  .m-close:hover{background:var(--navy);color:var(--sun)}
+  .lang button:focus-visible,.m-close:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+  .m-scroll{overflow:auto;padding:48px 40px 40px;flex:1}
+  .m-list{columns:2 340px;column-gap:80px}
+  .course{break-inside:avoid;margin-bottom:56px}
+  .course h3{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:14px;margin-bottom:4px;border-bottom:2px solid var(--navy)}
   .course h3 .wide{font-weight:500;font-size:.82rem;letter-spacing:.3em}
   .course h3 small{font-size:.95rem;color:rgba(48,64,125,.7);font-family:"Heebo",sans-serif}
-  .dish{display:grid;grid-template-columns:1fr auto auto;gap:4px 18px;align-items:center;padding:16px 8px 16px 0;border-bottom:1px solid var(--ink-hair);transition:opacity .45s,background .3s}
-  .dish:hover{background:rgba(48,64,125,.04)}
-  .dish.dim{opacity:.22}
-  .dish.dim .add{pointer-events:none}
-  .dish.gone{display:none}
-  .dish .n{font-weight:400;font-size:1.05rem}
-  .dish .p{font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:.04em;min-width:2.2em;text-align:right}
-  .dish .d{grid-column:1 / 2;color:rgba(48,64,125,.72);font-size:.92rem}
-  .sizes{grid-column:1 / 2;display:flex;gap:4px;font-size:.84rem}
-  .sizes button{font:inherit;background:none;border:0;color:var(--navy);cursor:pointer;padding:2px 0;opacity:.55}
-  .sizes button[aria-pressed="true"]{opacity:1;text-decoration:underline;text-underline-offset:4px}
-  .sizes span{opacity:.4}
-  .add{grid-row:1 / span 3;grid-column:3;width:34px;height:34px;border:1px solid var(--navy);background:transparent;color:var(--navy);font-size:1.1rem;line-height:1;cursor:pointer;transition:background .2s,color .2s}
-  .add:hover,.add.in{background:var(--navy);color:var(--sun)}
-  .add:focus-visible,.sizes button:focus-visible,.dial button:focus-visible,.lang button:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
-  .dish .p{grid-row:1;grid-column:2}
-  #menu.he .wide,#menu.he .m-index a{letter-spacing:.02em;font-family:"Heebo",sans-serif;font-stretch:100%;font-size:.92rem}
-  [dir="rtl"] .dish{padding:16px 0 16px 8px}
-  .m-list[dir="rtl"] .n,.m-list[dir="rtl"] .d,.m-list[dir="rtl"] h3{font-family:"Heebo",sans-serif}
-
-  .menu-foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:rgba(48,64,125,.72);font-size:.88rem;padding-top:8px}
-  .kitchen{margin-top:110px;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;padding:64px;background:var(--navy);color:var(--white)}
-  .kitchen h3{font-weight:200;font-stretch:125%;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15}
-  .kitchen p{color:var(--stone);font-size:1.08rem}
-  .kitchen .gold{color:var(--sun)}
-
-  /* Your table */
-  .table{position:fixed;right:24px;bottom:24px;z-index:12;width:340px;background:var(--navy);color:var(--white);box-shadow:0 20px 50px -20px rgba(20,28,60,.6)}
-  .t-head{width:100%;display:flex;justify-content:space-between;font:inherit;font-stretch:125%;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;background:none;border:0;color:var(--white);padding:18px 22px;cursor:pointer;border-bottom:3px solid var(--sun)}
-  .t-head b{color:var(--sun);font-weight:500}
-  .t-body{display:none;padding:8px 22px 20px}
-  .table.open .t-body{display:block}
-  .t-body ul{list-style:none;max-height:40vh;overflow:auto}
-  .t-body li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--hair);font-size:.95rem}
-  .t-body li small{display:block;color:var(--stone);font-size:.8rem}
-  .qty{display:flex;align-items:center;gap:8px}
-  .qty button{width:24px;height:24px;background:none;border:1px solid var(--hair);color:var(--white);cursor:pointer}
-  .t-actions{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font-size:.8rem;color:var(--stone)}
-  .t-actions button{font:inherit;background:none;border:0;color:var(--sun);cursor:pointer;text-decoration:underline;text-underline-offset:4px}
-
-  @media (max-width:900px){
-    .m-body{grid-template-columns:1fr;gap:0}
-    .m-index{position:sticky;top:0;z-index:3;flex-direction:row;overflow-x:auto;background:var(--paper);margin:0 -32px 32px;padding:0 32px;border-bottom:1px solid var(--ink-hair);gap:0}
-    .m-index a{border-left:0;border-bottom:2px solid transparent;padding:14px 14px;white-space:nowrap;gap:8px}
-    .m-index a.on{border-left:0;border-bottom:2px solid var(--navy);padding-left:14px}
-    .dial{grid-template-columns:repeat(5,minmax(64px,1fr));overflow-x:auto}
-    .dial button{font-size:.88rem}
-    #msearch{width:100%}
-    .m-tools{width:100%}
-    .kitchen{grid-template-columns:1fr;gap:24px;padding:40px 28px;margin-top:60px}
-  }
+  .dish{display:grid;grid-template-columns:1fr auto;gap:2px 20px;padding:14px 0;border-bottom:1px solid var(--ink-hair)}
+  .dish .n{font-size:1.05rem}
+  .dish .p{font-variant-numeric:tabular-nums;font-weight:500;letter-spacing:.04em;text-align:right}
+  .dish .d{grid-column:1 / -1;color:rgba(48,64,125,.72);font-size:.92rem}
+  .m-note{color:rgba(48,64,125,.72);font-size:.9rem;border-top:1px solid var(--ink-hair);padding-top:16px}
+  .m-window.he .wide{letter-spacing:.02em;font-family:"Heebo",sans-serif;font-stretch:100%;font-size:.95rem}
+  .m-window.he .m-scroll{font-family:"Heebo",sans-serif}
   @media (max-width:700px){
-    .table{left:0;right:0;bottom:61px;width:auto}
+    .m-window{width:100vw;height:100dvh;max-height:100dvh}
+    .m-bar{padding:14px 20px}
+    .m-scroll{padding:32px 20px 40px}
   }
 
   /* Words */
@@ -262,7 +215,7 @@
     <a href="#top" class="sig" aria-label="Cafe Keshet">Keshet<b>.</b></a>
     <nav aria-label="Sections">
       <a href="#house">The house</a>
-      <a href="#menu">Menu</a>
+      <a href="#menu" data-open-menu>Menu</a>
       <a href="#visit">Visit</a>
     </nav>
   </div>
@@ -310,59 +263,28 @@
 <section class="menu" id="menu">
   <div class="wrap">
     <div class="head"><span class="no">02</span><h2>Menu</h2></div>
-
-    <div class="m-controls">
-      <div class="when">
-        <span class="lbl">When are you coming?</span>
-        <div class="dial" role="radiogroup" aria-label="Time of day">
-          <span class="rail" aria-hidden="true"><span class="sunmark" id="sunmark"></span></span>
-          <button role="radio" data-when="all">All day<small>08—00</small></button>
-          <button role="radio" data-when="m">Morning<small>08—12</small></button>
-          <button role="radio" data-when="d">Day<small>12—17</small></button>
-          <button role="radio" data-when="s">Sunset<small>17—20</small></button>
-          <button role="radio" data-when="n">Night<small>20—00</small></button>
-        </div>
-      </div>
-      <div class="m-row">
-        <div class="prefs" aria-label="Preferences">
-          <label><input type="checkbox" data-pref="noalc"><span></span>Alcohol-free</label>
-          <label><input type="checkbox" data-pref="nocaf"><span></span>Caffeine-free</label>
-          <label><input type="checkbox" data-pref="iced"><span></span>Iced</label>
-          <label><input type="checkbox" data-pref="fizz"><span></span>Sparkling</label>
-        </div>
-        <div class="m-tools">
-          <input type="search" id="msearch" placeholder="Search the menu" aria-label="Search the menu">
-          <div class="lang" role="group" aria-label="Menu language">
-            <button data-lang="en" aria-pressed="true">EN</button><span>/</span><button data-lang="he" aria-pressed="false" lang="he">עב</button>
-          </div>
-        </div>
-      </div>
-      <p class="m-count" id="mcount" aria-live="polite"></p>
-    </div>
-
-    <div class="m-body">
-      <nav class="m-index" id="mindex" aria-label="Menu sections"></nav>
-      <div class="m-list" id="mlist"></div>
-    </div>
-
-    <div class="menu-foot"><span>Prices in shekels. Tap a size to see its price, and + to add it to your table.</span><span>Regular or oat milk · Pepsi, Pepsi Max &amp; mineral water also available</span></div>
-
-    <div class="kitchen">
-      <h3>From the<br><span class="gold">kitchen</span></h3>
-      <p>Breakfast, brunch, burgers, stone-baked pizza and fresh seasonal plates, served throughout the day. Our full food menu is presented at the table.</p>
+    <div class="m-teaser">
+      <p>Coffee and tea, cold drinks, cocktails and wine, all day, from the first espresso to the last glass. Breakfast, brunch, burgers and stone-baked pizza from the kitchen.</p>
+      <button class="btn btn-navy" type="button" data-open-menu>Open the menu</button>
     </div>
   </div>
-
-  <aside class="table" id="table" aria-label="Your table" hidden>
-    <button class="t-head" id="thead" aria-expanded="false">
-      <span>Your table · <b id="tcount">0</b></span><span>₪ <b id="ttotal">0</b></span>
-    </button>
-    <div class="t-body" id="tbody">
-      <ul id="titems"></ul>
-      <div class="t-actions"><button id="tclear">Clear</button><span>Show this list to your server</span></div>
-    </div>
-  </aside>
 </section>
+
+<dialog class="m-window" id="menuWindow" aria-label="Menu">
+  <div class="m-bar">
+    <span class="sig">Keshet<b>.</b> <span class="m-title">Menu</span></span>
+    <div class="m-bar-r">
+      <div class="lang" role="group" aria-label="Menu language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button><span>/</span><button type="button" data-lang="he" aria-pressed="false" lang="he">עב</button>
+      </div>
+      <button type="button" class="m-close" data-close-menu aria-label="Close menu">✕</button>
+    </div>
+  </div>
+  <div class="m-scroll">
+    <div class="m-list" id="mlist"></div>
+    <p class="m-note" id="mnote"></p>
+  </div>
+</dialog>
 
 <section class="words" aria-label="What guests say">
   <div class="wrap">
@@ -416,7 +338,7 @@
 
 <nav class="thumb" aria-label="Quick actions">
   <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Keshet+De+Shalit+Square+Herzliya" target="_blank" rel="noopener">Directions</a>
-  <a href="#menu">Menu</a>
+  <a href="#menu" data-open-menu>Menu</a>
 </nav>
 
 <script>
@@ -435,180 +357,68 @@
     document.getElementById('yr').textContent = new Date().getFullYear();
   })();
 
-  // ---------- Interactive menu ----------
+  // ---------- Menu window ----------
   (function(){
-    // f: c=caffeine a=alcohol i=iced z=sparkling · w: m=morning d=afternoon s=sunset n=night
     const MENU = [
-      {id:'hot', en:'Coffee & tea', he:'שתייה חמה', items:[
-        {en:'Espresso', he:'אספרסו', sizes:[['Short','קצר',10],['Long','ארוך',12]], f:'c', w:'mdsn'},
-        {en:'Macchiato', he:'מקיאטו', sizes:[['Short','קצר',10],['Double','כפול',12]], f:'c', w:'md'},
-        {en:'Cappuccino', he:'קפוצ׳ינו', sizes:[['Small','קטן',14],['Large','גדול',16]], f:'c', w:'md'},
-        {en:'Americano', he:'אמריקנו', price:14, f:'c', w:'md'},
-        {en:'Matcha', he:'מאצ׳ה', sizes:[['Small','קטן',22],['Large','גדול',26]], f:'c', w:'md'},
-        {en:'Ceremony tea', he:'תה חם (ceremony)', price:14, f:'', w:'mdn', d:['Jasmine, green, or forest fruits','יסמין / ירוק / פירות יער']}
+      {en:'Coffee & tea', he:'שתייה חמה', items:[
+        ['Espresso','אספרסו','10 / 12','Short / long','קצר / ארוך'],
+        ['Macchiato','מקיאטו','10 / 12','Short / double','קצר / כפול'],
+        ['Cappuccino','קפוצ׳ינו','14 / 16','Small / large','קטן / גדול'],
+        ['Americano','אמריקנו','14'],
+        ['Matcha','מאצ׳ה','22 / 26','Small / large','קטן / גדול'],
+        ['Ceremony tea','תה חם (ceremony)','14','Jasmine, green, or forest fruits','יסמין / ירוק / פירות יער']
       ]},
-      {id:'cold', en:'Cold', he:'שתייה קרה', items:[
-        {en:'Natural cold brew', he:'קפה קר טבעי', price:18, f:'ci', w:'md'},
-        {en:'Iced coffee', he:'אייס קפה', price:22, f:'ci', w:'md'},
-        {en:'Iced matcha', he:'מאצ׳ה קר', price:26, f:'ci', w:'md'},
-        {en:'Iced Americano', he:'אמריקנו קר', price:16, f:'ci', w:'md'},
-        {en:'Frappé', he:'פרייה', sizes:[['Small','קטן',14],['Large','גדול',24]], f:'i', w:'ds'},
-        {en:'House iced tea', he:'תה קר בטעמים', price:16, f:'i', w:'ds', d:['Sunny, cheeky cherry, or hibiscus','סאני / דובדבן שובב / היביסקוס']},
-        {en:'Gazoz', he:'גזוז בטעמים', price:14, f:'iz', w:'ds', d:['Mojito mint, blackberry, or hibiscus & elderflower','מוחיטו נענע / פטל שחור / היביסקוס סמבוק']},
-        {en:'Fresh-pressed juice', he:'מיץ טבעי בבקבוק', price:17, f:'i', w:'md', d:['Three kinds, freshly squeezed','סחוט טרי, 3 סוגים']}
+      {en:'Cold', he:'שתייה קרה', items:[
+        ['Natural cold brew','קפה קר טבעי','18'],
+        ['Iced coffee','אייס קפה','22'],
+        ['Iced matcha','מאצ׳ה קר','26'],
+        ['Iced Americano','אמריקנו קר','16'],
+        ['Frappé','פרייה','14 / 24','Small / large','קטן / גדול'],
+        ['House iced tea','תה קר בטעמים','16','Sunny, cheeky cherry, or hibiscus','סאני / דובדבן שובב / היביסקוס'],
+        ['Gazoz','גזוז בטעמים','14','Mojito mint, blackberry, or hibiscus & elderflower','מוחיטו נענע / פטל שחור / היביסקוס סמבוק'],
+        ['Fresh-pressed juice','מיץ טבעי בבקבוק','17','Three kinds, freshly squeezed','סחוט טרי, 3 סוגים'],
+        ['Pepsi · Pepsi Max','פפסי · פפסי מקס','13'],
+        ['Mineral water','מים מינרלים קטן','10']
       ]},
-      {id:'bar', en:'Cocktails', he:'קוקטיילים', items:[
-        {en:'Spritz de Shalit', he:'שפריץ דה שליט', price:44, f:'aiz', w:'sn', d:['Crémant de Loire, elderflower liqueur, soda, fresh mint','קרמו דה לואר, סודה, ליקר סמבוק, עלי נענע טריים']},
-        {en:'Espresso martini', he:'אספרסו מרטיני', price:44, f:'aci', w:'sn', d:['Coffee liqueur, citrus liqueur, espresso','ליקר קפה, ליקר ערמונים, אספרסו']},
-        {en:'Frozen margarita', he:'אייס פרוזן מרגריטה', price:46, f:'ai', w:'sn'},
-        {en:'Bottled cocktail', he:'קוקטייל בבקבוק לבחירה', price:54, f:'ai', w:'sn', d:['Basil smash, Israeli tropical, or Pink mama','בזיל סמאש / טרופיקל ישראלי / פינק מאמא']},
-        {en:'Beer', he:'בירה', sizes:[['Heineken','הייניקן',28],['Goldstar','גולדסטאר',32]], f:'aiz', w:'dsn'}
+      {en:'Cocktails & beer', he:'אלכוהול / קוקטיילים', items:[
+        ['Spritz de Shalit','שפריץ דה שליט','44','Crémant de Loire, elderflower liqueur, soda, fresh mint','קרמו דה לואר, סודה, ליקר סמבוק, עלי נענע טריים'],
+        ['Espresso martini','אספרסו מרטיני','44','Coffee liqueur, citrus liqueur, espresso','ליקר קפה, ליקר ערמונים, אספרסו'],
+        ['Frozen margarita','אייס פרוזן מרגריטה','46'],
+        ['Bottled cocktail','קוקטייל בבקבוק לבחירה','54','Basil smash, Israeli tropical, or Pink mama','בזיל סמאש / טרופיקל ישראלי / פינק מאמא'],
+        ['Heineken / Goldstar','הייניקן / גולדסטאר','28 / 32']
       ]},
-      {id:'wine', en:'Wine', he:'יינות', items:[
-        {en:'Rioja Rosado, Edición Limitada', he:'רוזאדו ריוחה אדיסיון לימיטדה', sizes:[['Glass','כוס',52],['Bottle','בקבוק',210]], f:'a', w:'sn', d:['Rosé · Ramón Bilbao, Spain','רוזה · רמון בילבאו, ספרד']},
-        {en:'Crémant', he:'קרמו מבעבע', sizes:[['Glass','כוס',42],['Bottle','בקבוק',168]], f:'az', w:'sn', d:['Sparkling · France','מבעבע · צרפת']},
-        {en:'Petit Chablis', he:'פטיט שבלי', sizes:[['Glass','כוס',58],['Bottle','בקבוק',240]], f:'a', w:'sn', d:['White · France · kosher','לבן · צרפת · כשר']},
-        {en:'Sauvignon Blanc', he:'סוביניון בלאן', sizes:[['Glass','כוס',42],['Bottle','בקבוק',130]], f:'a', w:'sn', d:['White','לבן']},
-        {en:'House white', he:'אורונוס אליוס', sizes:[['Glass','כוס',38],['Bottle','בקבוק',130]], f:'a', w:'sn', d:['White','לבן']}
+      {en:'Wine', he:'יינות', note:['glass / bottle','כוס / בקבוק'], items:[
+        ['Rioja Rosado, Edición Limitada','רוזאדו ריוחה אדיסיון לימיטדה','52 / 210','Rosé · Ramón Bilbao, Spain','רוזה · רמון בילבאו, ספרד'],
+        ['Crémant','קרמו מבעבע','42 / 168','Sparkling · France','מבעבע · צרפת'],
+        ['Petit Chablis','פטיט שבלי','58 / 240','White · France · kosher','לבן · צרפת · כשר'],
+        ['Sauvignon Blanc','סוביניון בלאן','42 / 130','White','לבן'],
+        ['House white','אורונוס אליוס','38 / 130','White','לבן']
       ]}
     ];
-
-    const list = document.getElementById('mlist'), index = document.getElementById('mindex');
-    const state = {lang:'en', when:'all', prefs:new Set(), q:'', table:[]};
-    const L = (en, he) => state.lang === 'he' ? he : en;
-    const store = {
-      get(){ try { return JSON.parse(localStorage.getItem('keshet-table')) || []; } catch(e){ return []; } },
-      set(v){ try { localStorage.setItem('keshet-table', JSON.stringify(v)); } catch(e){} }
-    };
-    state.table = store.get();
-
-    function render(){
-      list.dir = state.lang === 'he' ? 'rtl' : 'ltr';
-      index.dir = list.dir;
-      document.getElementById('menu').classList.toggle('he', state.lang === 'he');
+    const win = document.getElementById('menuWindow'), list = document.getElementById('mlist');
+    function render(lang){
+      const he = lang === 'he';
+      win.classList.toggle('he', he);
+      list.dir = he ? 'rtl' : 'ltr';
       list.innerHTML = MENU.map(c => `
-        <div class="course" id="c-${c.id}">
-          <h3><span class="wide">${L(c.en, c.he)}</span><small lang="${state.lang==='he'?'en':'he'}">${state.lang==='he'?c.en:c.he}</small></h3>
-          ${c.items.map((it, k) => {
-            const key = c.id + k, s = it.sel || 0;
-            const price = it.sizes ? it.sizes[s][2] : it.price;
-            const sizes = it.sizes ? `<div class="sizes">${it.sizes.map((z, j) => `${j?'<span>/</span>':''}<button aria-pressed="${j===s}" data-key="${key}" data-size="${j}">${L(z[0], z[1])}</button>`).join('')}</div>` : '';
-            return `<div class="dish" data-key="${key}" data-f="${it.f}" data-w="${it.w}" data-t="${(it.en+' '+it.he+' '+(it.d?it.d.join(' '):'')).toLowerCase()}">
-              <span class="n">${L(it.en, it.he)}</span><span class="p">${price}</span>
-              <button class="add" data-key="${key}" aria-label="Add ${it.en} to your table">+</button>
-              ${it.d ? `<span class="d">${L(it.d[0], it.d[1])}</span>` : ''}${sizes}
-            </div>`;
-          }).join('')}
+        <div class="course">
+          <h3><span class="wide">${he ? c.he : c.en}</span><small>${c.note ? (he ? c.note[1] : c.note[0]) : (he ? '' : c.he)}</small></h3>
+          ${c.items.map(i => `<div class="dish"><span class="n">${he ? i[1] : i[0]}</span><span class="p">${i[2]}</span>${i[3] ? `<span class="d">${he ? i[4] : i[3]}</span>` : ''}</div>`).join('')}
         </div>`).join('');
-      index.innerHTML = MENU.map(c => `<a href="#c-${c.id}" data-id="${c.id}"><span>${L(c.en, c.he)}</span><i data-count="${c.id}"></i></a>`).join('');
-      apply(); spy();
+      document.getElementById('mnote').textContent = he
+        ? 'המחירים בש״ח · לבחירה חלב רגיל / שיבולת שועל · המחירים עשויים להשתנות'
+        : 'Prices in shekels · Regular or oat milk · Prices may change';
+      document.getElementById('mnote').dir = list.dir;
     }
-
-    const find = key => { for (const c of MENU) c.items.forEach((it, k) => { if (c.id + k === key) found = it; }); return found; };
-    let found;
-
-    function apply(){
-      let shown = 0, total = 0;
-      const counts = {};
-      list.querySelectorAll('.dish').forEach(el => {
-        const f = el.dataset.f, w = el.dataset.w;
-        let ok = state.when === 'all' || w.includes(state.when);
-        if (state.prefs.has('noalc') && f.includes('a')) ok = false;
-        if (state.prefs.has('nocaf') && f.includes('c')) ok = false;
-        if (state.prefs.has('iced') && !f.includes('i')) ok = false;
-        if (state.prefs.has('fizz') && !f.includes('z')) ok = false;
-        const match = !state.q || el.dataset.t.includes(state.q);
-        el.classList.toggle('dim', !ok);
-        el.classList.toggle('gone', !match);
-        total++;
-        if (ok && match) { shown++; const id = el.dataset.key.replace(/\d+$/, ''); counts[id] = (counts[id] || 0) + 1; }
-      });
-      index.querySelectorAll('[data-count]').forEach(i => i.textContent = counts[i.dataset.count] || 0);
-      const filtered = state.when !== 'all' || state.prefs.size || state.q;
-      document.getElementById('mcount').textContent = filtered
-        ? (shown ? `${shown} of ${total} drinks suit your choice.` : 'Nothing matches that combination. Try loosening a filter.')
-        : '';
-    }
-
-    // Time-of-day dial
-    const dialBtns = [...document.querySelectorAll('.dial button')];
-    function setWhen(w){
-      state.when = w;
-      dialBtns.forEach(b => b.setAttribute('aria-checked', b.dataset.when === w));
-      const i = dialBtns.findIndex(b => b.dataset.when === w);
-      document.getElementById('sunmark').style.left = (i / (dialBtns.length - 1) * 100) + '%';
-      apply();
-    }
-    dialBtns.forEach(b => b.addEventListener('click', () => setWhen(b.dataset.when)));
-
-    document.querySelectorAll('.prefs input').forEach(i => i.addEventListener('change', () => {
-      i.checked ? state.prefs.add(i.dataset.pref) : state.prefs.delete(i.dataset.pref); apply();
+    win.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
+      win.querySelectorAll('.lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
+      render(b.dataset.lang);
     }));
-    document.getElementById('msearch').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); apply(); });
-    document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => {
-      state.lang = b.dataset.lang;
-      document.querySelectorAll('.lang button').forEach(x => x.setAttribute('aria-pressed', x === b));
-      render(); drawTable();
-    }));
-
-    // Sizes and adding
-    list.addEventListener('click', e => {
-      const sz = e.target.closest('.sizes button');
-      if (sz) { find(sz.dataset.key).sel = +sz.dataset.size; render(); return; }
-      const add = e.target.closest('.add');
-      if (add) {
-        const it = find(add.dataset.key), s = it.sizes ? (it.sel || 0) : -1;
-        const line = state.table.find(l => l.key === add.dataset.key && l.s === s);
-        line ? line.q++ : state.table.push({key:add.dataset.key, s, q:1});
-        save(); add.classList.add('in'); setTimeout(() => add.classList.remove('in'), 500);
-      }
-    });
-
-    // Your table
-    const tEl = document.getElementById('table');
-    function save(){ store.set(state.table); drawTable(); }
-    function drawTable(){
-      let n = 0, sum = 0;
-      document.getElementById('titems').innerHTML = state.table.map((l, i) => {
-        const it = find(l.key); if (!it) return '';
-        const price = l.s >= 0 ? it.sizes[l.s][2] : it.price;
-        n += l.q; sum += price * l.q;
-        const size = l.s >= 0 ? `<small>${L(it.sizes[l.s][0], it.sizes[l.s][1])}</small>` : '';
-        return `<li><span>${L(it.en, it.he)}${size}</span><span class="qty"><button data-i="${i}" data-d="-1" aria-label="One less">−</button>${l.q}<button data-i="${i}" data-d="1" aria-label="One more">+</button></span><span>${price * l.q}</span></li>`;
-      }).join('');
-      document.getElementById('tcount').textContent = n;
-      document.getElementById('ttotal').textContent = sum;
-      tEl.hidden = n === 0;
-    }
-    document.getElementById('titems').addEventListener('click', e => {
-      const b = e.target.closest('button'); if (!b) return;
-      const l = state.table[+b.dataset.i]; l.q += +b.dataset.d;
-      if (l.q <= 0) state.table.splice(+b.dataset.i, 1);
-      save();
-    });
-    document.getElementById('thead').addEventListener('click', () => {
-      const open = tEl.classList.toggle('open');
-      document.getElementById('thead').setAttribute('aria-expanded', open);
-    });
-    document.getElementById('tclear').addEventListener('click', () => { state.table = []; save(); tEl.classList.remove('open'); });
-
-    // Highlight the section in view
-    let io;
-    function spy(){
-      if (io) io.disconnect();
-      io = new IntersectionObserver(es => es.forEach(e => {
-        if (e.isIntersecting) index.querySelectorAll('a').forEach(a => a.classList.toggle('on', 'c-' + a.dataset.id === e.target.id));
-      }), {rootMargin:'-30% 0px -60% 0px'});
-      list.querySelectorAll('.course').forEach(c => io.observe(c));
-    }
-
-    // Start on the current time of day in Herzliya
-    let start = 'all';
-    try {
-      const h = +new Intl.DateTimeFormat('en-US', {timeZone:'Asia/Jerusalem', hour:'numeric', hourCycle:'h23'}).format(new Date());
-      start = h >= 7 && h < 12 ? 'm' : h >= 12 && h < 17 ? 'd' : h >= 17 && h < 20 ? 's' : h >= 20 ? 'n' : 'all';
-    } catch(e) {}
-    render(); drawTable(); setWhen(start);
+    const open = e => { e.preventDefault(); win.showModal(); };
+    document.querySelectorAll('[data-open-menu]').forEach(el => el.addEventListener('click', open));
+    win.querySelector('[data-close-menu]').addEventListener('click', () => win.close());
+    win.addEventListener('click', e => { if (e.target === win) win.close(); });
+    render('en');
   })();
 
   // Slow quote rotation
